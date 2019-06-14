@@ -2,8 +2,12 @@ from selenium import webdriver
 import schedule
 import time
 
+options = ChromeOptions()
+options.add_argument("--disable-extensions")
+options.add_experimental_option("useAutomationExtension", False)
+
 def job():
-    browser = webdriver.Chrome()
+    browser = webdriver.Chrome(options=options)
     browser.get('https://meduza.io')
     browser.__exit__()
 
